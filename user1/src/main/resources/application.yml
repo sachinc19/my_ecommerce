@@ -1,15 +1,21 @@
-server:
-  port: 8000
-
 spring:
-  datasource:
-    driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/micro
-    username: postgres
-    password: root
-  jpa:
-    properties:
-      hibernate.dialect: org.hibernate.dialect.PostgreSQLDialect
-    hibernate:
-      ddl-auto: update
-    show-sql: true
+  application:
+    name: user-service
+  config:
+    import: optional:configserver:http://localhost:8888
+  profiles:
+    active: dev
+logging:
+  level:
+    org.springframework.cloud.config: DEBUG
+
+#server:
+#  port: 8000
+#
+#spring:
+#  application:
+#    name:user-service1
+#  data:
+#    mongodb:
+#      uri:
+#        database:mongodb://localhost:27017/userdb

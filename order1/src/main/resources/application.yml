@@ -1,15 +1,11 @@
-server:
-  port: 8001
-
 spring:
-  datasource:
-    driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/my_ecomerce
-    username: postgres
-    password: root
-  jpa:
-    properties:
-      hibernate.dialect: org.hibernate.dialect.PostgreSQLDialect
-    hibernate:
-      ddl-auto: update
-    show-sql: true
+  application:
+    name: order-service
+  config:
+    import: optional:configserver:http://localhost:8888
+  profiles:
+    active: dev
+logging:
+  level:
+    org.springframework.cloud.config: DEBUG
+

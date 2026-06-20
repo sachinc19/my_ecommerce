@@ -4,8 +4,10 @@ services:
     image: postgres:14
     mem_limit: 700m
     environment:
-      POSTGRES_USER: embarkx
-      POSTGRES_PASSWORD: embarkx
+      POSTGRES_USER: sachin
+      POSTGRES_PASSWORD: sachin
+      TZ: Asia/Kolkata
+      PGTZ: Asia/Kolkata
       PGDATA: /data/postgres
     volumes:
       - postgres:/data/postgres
