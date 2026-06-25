@@ -1,9 +1,9 @@
 //package com.ecommerce.order1.clients;
 //
 //import io.micrometer.observation.ObservationRegistry;
-//import io.micrometer.tracing.Tracer;
-//import io.micrometer.tracing.propagation.Propagator;
+//
 //import org.springframework.beans.factory.annotation.Autowired;
+//
 //import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 //import org.springframework.context.annotation.Bean;
 //import org.springframework.context.annotation.Configuration;
@@ -21,7 +21,7 @@
 //
 //    @Autowired(required = false)
 //    private Propagator propagator;
-//
+
 //    @Bean
 //    @LoadBalanced
 //    public RestClient.Builder restClientBuilder() {
@@ -33,7 +33,7 @@
 //
 //        return builder;
 //    }
-//
+
 //    private ClientHttpRequestInterceptor createTracingInterceptor() {
 //        return ((request, body, execution) -> {
 //            if (tracer != null && propagator != null
@@ -46,6 +46,6 @@
 //        }
 //        );
 //    }
-//
-//
+
+
 //}

@@ -1,5 +1,7 @@
 package com.ecommerce.order1.services;
 
+import com.ecommerce.order1.clients.ProductServiceClient;
+import com.ecommerce.order1.clients.UserServiceClient;
 import com.ecommerce.order1.dtos.ProductResponse;
 import com.ecommerce.order1.dtos.UserResponse;
 import com.ecommerce.order1.repositories.CartItemRepository;
@@ -17,8 +19,8 @@ import java.util.List;
 @Transactional
 public class CartService {
     private final CartItemRepository cartItemRepository;
-//    private final ProductServiceClient productServiceClient;
-//    private final UserServiceClient userServiceClient;
+    private final ProductServiceClient productServiceClient;
+    private final UserServiceClient userServiceClient;
     int attempt = 0;
 
 //    @CircuitBreaker(name = "productService", fallbackMethod = "addToCartFallBack")
@@ -26,13 +28,13 @@ public class CartService {
     public boolean addToCart(String userId, CartItemRequest request) {
         System.out.println("ATTEMPT COUNT: " + ++attempt);
         // Look for product
-//        ProductResponse productResponse = productServiceClient.getProductDetails(request.getProductId());
-//        if (productResponse == null || productResponse.getStockQuantity() < request.getQuantity())
-//            return false;
+        ProductResponse productResponse = productServiceClient.getProductDetails(request.getProductId());
+        if (productResponse == null || productResponse.getStockQuantity() < request.getQuantity())
+            return false;
 //
-//        UserResponse userResponse = userServiceClient.getUserDetails(userId);
-//        if (userResponse == null)
-//            return false;
+        UserResponse userResponse = userServiceClient.getUserDetails(userId);
+        if (userResponse == null)
+            return false;
 
         CartItem existingCartItem = cartItemRepository.findByUserIdAndProductId(userId, request.getProductId());
         if (existingCartItem != null) {

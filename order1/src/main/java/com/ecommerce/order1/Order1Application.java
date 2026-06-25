@@ -3,9 +3,7 @@ package com.ecommerce.order1;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-
 @SpringBootApplication
-
 public class Order1Application {
 
 	public static void main(String[] args) {

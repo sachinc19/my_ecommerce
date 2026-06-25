@@ -7,5 +7,23 @@ spring:
     active: dev
 logging:
   level:
-    org.springframework.cloud.config: DEBUG
+    root: INFO
+    com.ecommerce.user1: TRACE
+  file:
+    name: log/${spring.application.name}.log
+  rollingpolicy:
+    max-file-size: 5MB
+    max-history: 7
+
+#eureka:
+#  client:
+#    service-url:
+#      defaultZone: http://localhost:8761/eureka
+#    register-with-eureka: true
+#    fetch-registry: true
+#
+#    instance:
+#      ip-address: 127.0.0.1
+#      prefer-ip-address: true
+#
 

@@ -9,13 +9,4 @@ logging:
   level:
     org.springframework.cloud.config: DEBUG
 
-#server:
-#  port: 8000
-#
-#spring:
-#  application:
-#    name:user-service1
-#  data:
-#    mongodb:
-#      uri:
-#        database:mongodb://localhost:27017/userdb
+
